@@ -1,0 +1,1 @@
+worker: python amazon.com-reviews-selenium.py
