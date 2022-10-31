@@ -21,22 +21,23 @@ from webdriver_manager.chrome import ChromeDriverManager
 import gspread
 import gspread_dataframe as gd
 
-# options = webdriver.ChromeOptions()
-# options.add_argument('--start-maximized')
-# options.add_experimental_option('excludeSwitches', ['enable-logging'])
-# # driver = webdriver.Chrome(executable_path=r'D:\Sol\chromedriver\chromedriver.exe', options=options)
-# # driver = webdriver.Chrome(service=Service('D:\Sol\chromedriver\chromedriver.exe'), options=options)
-# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-# driver.implicitly_wait(0)
-
-options = uc.ChromeOptions()
+options = webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
-options.add_argument("--headless")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument('--no-sandbox')
 options.add_argument("--disable-gpu")
-driver = uc.Chrome(options=options)
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 driver.implicitly_wait(0)
+
+# options = uc.ChromeOptions()
+# options.add_argument('--start-maximized')
+# options.add_argument("--headless")
+# options.add_argument("--disable-dev-shm-usage")
+# options.add_argument('--no-sandbox')
+# options.add_argument("--disable-gpu")
+# driver = uc.Chrome(options=options)
+# driver.implicitly_wait(0)
 
 url = 'https://www.amazon.de/dp/B09HKXTNH5/ref=syn_sd_onsite_desktop_15?ie=UTF8&pd_rd_plhdr=t&th=1&psc=1'
 # driver.get(url)
