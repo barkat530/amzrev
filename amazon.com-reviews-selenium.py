@@ -14,6 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import random
 from selenium.webdriver.chrome.service import Service
@@ -22,7 +23,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 import gspread
 import gspread_dataframe as gd
 
-options = webdriver.ChromeOptions()
+# options = webdriver.ChromeOptions()
+options = Options()
 options.add_argument("--no-sandbox") # nosandbox is needed because we run chrome as root user
 options.add_argument("--headless") # headless will disable the chrome window
 options.add_experimental_option('excludeSwitches', ['ignore-certificate-errors'])
