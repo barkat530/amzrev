@@ -23,8 +23,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 import gspread
 import gspread_dataframe as gd
 
-# options = webdriver.ChromeOptions()
-options = Options()
+options = webdriver.ChromeOptions()
+# options = Options()
 options.add_argument("--no-sandbox") # nosandbox is needed because we run chrome as root user
 options.add_argument("--headless") # headless will disable the chrome window
 options.add_experimental_option('excludeSwitches', ['ignore-certificate-errors'])
