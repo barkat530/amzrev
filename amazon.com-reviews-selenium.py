@@ -6,7 +6,6 @@ import datetime
 import base64
 import time
 import os
-os.system('cls')
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
