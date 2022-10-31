@@ -42,8 +42,8 @@ caps["pageLoadStrategy"] = "normal"
 # caps["loggingPrefs"] = {'browser': 'ALL'}
 caps["goog:loggingPrefs"] = {'browser': 'ALL'} # this line is important it allows us to read the console logs
 # caps["pageLoadStrategy"] = "none" # none mode won't wait for javascript executions, thus making it faster.
-driver = webdriver.Chrome(options=options, desired_capabilities=caps)
-# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options, desired_capabilities=caps)
+# driver = webdriver.Chrome(options=options, desired_capabilities=caps)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options, desired_capabilities=caps)
 driver.implicitly_wait(0)
 
 # options = uc.ChromeOptions()
