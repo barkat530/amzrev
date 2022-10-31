@@ -22,12 +22,25 @@ import gspread
 import gspread_dataframe as gd
 
 options = webdriver.ChromeOptions()
-options.add_argument('--start-maximized')
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument('--no-sandbox')
-options.add_argument("--disable-gpu")
-options.add_experimental_option('excludeSwitches', ['enable-logging'])
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+options.add_argument("--no-sandbox") # nosandbox is needed because we run chrome as root user
+options.add_argument("--headless") # headless will disable the chrome window
+options.add_experimental_option('excludeSwitches', ['ignore-certificate-errors'])
+options.add_argument("--enable-automation")
+# options.add_argument("--auto-open-devtools-for-tabs")
+options.add_argument("--disable-dev-shm-usage") # if you run chrome inside container like docker, shm could be a problem without this
+options.add_argument("--disable-browser-side-navigation")
+options.add_argument("--window-size=2048x1536") # explicitly setting window size
+options.add_argument("--disable-gpu") # server is gpuless
+options.add_argument("--start-maximized")
+# options.add_argument("--disable-infobars")
+options.add_argument("--disable-extensions") # exts should be disabled
+caps = DesiredCapabilities().CHROME
+caps["pageLoadStrategy"] = "normal"
+# caps["loggingPrefs"] = {'browser': 'ALL'}
+caps["goog:loggingPrefs"] = {'browser': 'ALL'} # this line is important it allows us to read the console logs
+# caps["pageLoadStrategy"] = "none" # none mode won't wait for javascript executions, thus making it faster.
+# driver = webdriver.Chrome(options=options, desired_capabilities=caps)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options, desired_capabilities=caps)
 driver.implicitly_wait(0)
 
 # options = uc.ChromeOptions()
