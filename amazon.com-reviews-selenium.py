@@ -23,9 +23,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 import gspread
 import gspread_dataframe as gd
 
-CHROMEDRIVER_PATH = /app/.chromedriver/bin/chromedriver
-GOOGLE_CHROME_BIN = /app/.apt/usr/bin/google-chrome
-
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 chrome_options.add_argument("--headless")
