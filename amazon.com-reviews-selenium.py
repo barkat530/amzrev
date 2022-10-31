@@ -33,7 +33,7 @@ import gspread_dataframe as gd
 options = uc.ChromeOptions()
 options.add_argument('--start-maximized')
 options.add_argument("--headless")
-driver = uc.Chrome(use_subprocess=True, options=options)
+driver = uc.Chrome(options=options)
 driver.implicitly_wait(0)
 
 url = 'https://www.amazon.de/dp/B09HKXTNH5/ref=syn_sd_onsite_desktop_15?ie=UTF8&pd_rd_plhdr=t&th=1&psc=1'
